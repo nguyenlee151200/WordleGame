@@ -8,39 +8,55 @@ namespace WordGame
         static void Main(string[] args)
         {
             string play = "";
+            int totalPlay = 0;
             Game wordleGame = new Game();
             wordleGame.DisplayDetails();
+            Guide();
             while (true)
             {
-                Console.WriteLine("Would you like to play My Wordle [y|n] ?");//stage 3:
+                Console.Write("Would you like to play My Wordle [y|n] ?");//stage 3:
                 play = Console.ReadLine();//stage 3:
                 if (play == "y" || play == "Y")
                 {
                     wordleGame.WordleGame();
                     //stage 11: loop checks for input characters
+                    totalPlay++;
                     while (true)
                     {
-                        Console.WriteLine("Would you like to play again [y|n] ?");
+                        Console.Write("Would you like to play again [y|n] ?");
                         play = Console.ReadLine();
                         if (play == "y" || play == "Y")
                         {
                             wordleGame.WordleGame();
+                            totalPlay++;
                         }
                         else if (play == "n" || play == "N")
                         {
-                            Console.WriteLine("Thank you !!!");
+                            Console.WriteLine("My Wordle Summary");
+                            Console.WriteLine("-----------------");
+                            Console.WriteLine("You play {0} games:",totalPlay);
+                            Console.WriteLine("\t|--> Number of wordles solved : {0}", Game.Solved);
+                            Console.WriteLine("\t|--> Number of wordles unsolved : {0}",Game.Unsolved);
+                            Console.WriteLine("Thank for playing !!!");
                             return;
                         }
                     }
                 }
                 else if (play == "n" || play == "N")
                 {
-                    Console.WriteLine("Thank you !!!");
+                    Console.WriteLine("No worries... another time perhaps... :)");
                     return;
                 }
             }
 
         }
+        public static void Guide()
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("--          My Wordle!        --");
+            Console.WriteLine("-- Gues the Wordle in 6 tries --");
+            Console.WriteLine("--------------------------------");
+        }
     }
-    
+
 }

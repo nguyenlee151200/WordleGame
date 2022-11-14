@@ -835,15 +835,22 @@ namespace WordGame
     "zoaea", "zoeae", "zoeas", "zombi", "zonal", "zoned", "zoner",
     "zones", "zonks", "zooey", "zooid", "zooks", "zooms", "zoons",
     "zoril", "zowie", "zymes" };// list word
+        static int solved = 0;
+        static int unsolved = 0;
+
+        public static int Solved { get { return solved; } set { solved = value; } }
+        public static int Unsolved { get { return unsolved; } set { unsolved = value; } }
+
         public void WordleGame()
         {
-            string wordToGuess = GetWordToGuess();
+            string wordToGuess = "tense";
             Console.WriteLine("Wordle is: " + wordToGuess);
             List<string> myCollection = new List<string>(); //stage 8: initialize the variable containing the list of characters in the correct position
             List<string> myUse = new List<string>(); //stage 8:initialize a variable containing a list of used characters
             string input = null;
             //stage 9: input limit loop
             int limited = 6;
+            
             for (int y = 1; y <= limited; y++)
             {
                 Console.WriteLine("-----------");
@@ -913,12 +920,14 @@ namespace WordGame
                         if (input == wordToGuess)
                         {
                             Console.WriteLine("Solved in {0} tries! Well done!", y);
-                            break;
+                            solved++;
+                            return;
                         }
                         else if(y== limited)
                         {
                             Console.WriteLine("Oh no! Better luck next time!");
                             Console.WriteLine("The wordle was:{0}", wordToGuess);
+                            unsolved++;
                         }
                     }
                     //stage 11: if the input word does not exist in the word list 
@@ -954,10 +963,8 @@ namespace WordGame
             int count = 0;
             for (int m = 0; m < letterB.Length; m++)
             {
-
                 if (letterA == letterB[m].ToString()) { count = count +1; }
             }
-            
             return count;
         }
     }
