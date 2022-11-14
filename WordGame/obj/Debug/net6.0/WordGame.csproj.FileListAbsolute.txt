@@ -1,0 +1,15 @@
+E:\C#\WordGame\WordGame\bin\Debug\net6.0\WordGame.exe
+E:\C#\WordGame\WordGame\bin\Debug\net6.0\WordGame.deps.json
+E:\C#\WordGame\WordGame\bin\Debug\net6.0\WordGame.runtimeconfig.json
+E:\C#\WordGame\WordGame\bin\Debug\net6.0\WordGame.dll
+E:\C#\WordGame\WordGame\bin\Debug\net6.0\WordGame.pdb
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.csproj.AssemblyReference.cache
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.AssemblyInfoInputs.cache
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.AssemblyInfo.cs
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.csproj.CoreCompileInputs.cache
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.dll
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\refint\WordGame.dll
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.pdb
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\WordGame.genruntimeconfig.cache
+E:\C#\WordGame\WordGame\obj\Debug\net6.0\ref\WordGame.dll
