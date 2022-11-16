@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace WordGame
 {
-     class Game
+    class Game
     {
-        static string[] WORD_LIST = {
+        string[] WORD_LIST = {
     "aahed", "aalii", "abaca", "abaci", "aback", "abaft", "abamp",
     "abase", "abash", "abate", "abbas", "abbey", "abbot", "abeam",
     "abets", "abhor", "abide", "abled", "abler", "abmho", "abode",
@@ -835,22 +835,22 @@ namespace WordGame
     "zoaea", "zoeae", "zoeas", "zombi", "zonal", "zoned", "zoner",
     "zones", "zonks", "zooey", "zooid", "zooks", "zooms", "zoons",
     "zoril", "zowie", "zymes" };// list word
-        static int solved = 0;
-        static int unsolved = 0;
+        int solved = 0;
+        int unsolved = 0;
 
-        public static int Solved { get { return solved; } set { solved = value; } }
-        public static int Unsolved { get { return unsolved; } set { unsolved = value; } }
+        public int Solved { get { return solved; } set { solved = value; } } //stage 12
+        public  int Unsolved { get { return unsolved; } set { unsolved = value; } }
 
         public void WordleGame()
         {
-            string wordToGuess = "tense";
+            string wordToGuess = "glass";
             Console.WriteLine("Wordle is: " + wordToGuess);
             List<string> myCollection = new List<string>(); //stage 8: initialize the variable containing the list of characters in the correct position
             List<string> myUse = new List<string>(); //stage 8:initialize a variable containing a list of used characters
             string input = null;
             //stage 9: input limit loop
             int limited = 6;
-            
+
             for (int y = 1; y <= limited; y++)
             {
                 Console.WriteLine("-----------");
@@ -871,31 +871,31 @@ namespace WordGame
                         //stage4: the loop checks how many characters are in the correct position relative to the result
                         for (int i = 0; i < remainLetterInWord.Length; i++)
                         {
-                            if (remainLetterInWord[i] == input[i]) 
+                            if (remainLetterInWord[i] == input[i])
                             {
                                 remainLetterInWord = remainLetterInWord.Substring(0, i) + "^" +
-                                     remainLetterInWord.Substring(i + 1);  
+                                     remainLetterInWord.Substring(i + 1);
                                 inputCompare = inputCompare.Substring(0, i) + "^" +
-                                       inputCompare.Substring(i + 1); 
+                                       inputCompare.Substring(i + 1);
                                 totalCorrect++; //stage7: add 1 to the variable totalCorrect
                                 myCollection.Add(input[i].ToString());
 
                             }
                         }
-                        
-                        for (int i =0; i < remainLetterInWord.Length; i++)
+
+                        for (int i = 0; i < remainLetterInWord.Length; i++)
                         {
                             //stage 5: the loop checks how many characters are correct but in the wrong position relative to the result
                             if (remainLetterInWord.Contains(input[i]) == true && remainLetterInWord[i] != inputCompare[i])
-                                {
+                            {
                                 int countCompareInput = CountofOccurrences(inputCompare[i].ToString(), inputCompare);
                                 int countCompareWord = CountofOccurrences(inputCompare[i].ToString(), remainLetterInWord);
-                                if(countCompareInput > countCompareWord)
+                                if (countCompareInput > countCompareWord)
                                 {
                                     remainLetterInWord = remainLetterInWord.Replace(input[i].ToString(), "*");
                                 }
                                 inputCompare = inputCompare.Substring(0, i) + "*" +
-                                inputCompare.Substring(i + 1); 
+                                inputCompare.Substring(i + 1);
                                 wrongSpot++; //stage 7: add 1 to the variable wrongSpot
 
 
@@ -909,12 +909,12 @@ namespace WordGame
                             }
 
                             myUse.Add(input[i].ToString());
-                            
+
                         }
                         Console.WriteLine(inputCompare);
                         Console.Write("\n");
-                        Console.WriteLine("Correct spot(^): {0}" , totalCorrect); //stage 7: log total correct spot
-                        Console.WriteLine("Wrong spot(*): {0}" ,wrongSpot ); //stage 7: log total wrong spot
+                        Console.WriteLine("Correct spot(^): {0}", totalCorrect); //stage 7: log total correct spot
+                        Console.WriteLine("Wrong spot(*): {0}", wrongSpot); //stage 7: log total wrong spot
                         Console.WriteLine("Correct letters : {0}", string.Join(" ", myCollection.Distinct())); //stage 8: log letters in the word and in the correct position
                         Console.WriteLine("Used letters : {0}", string.Join(" ", myUse.Except(myCollection).ToList())); //stage 8: log all letters are used minus the correct ones
                         if (input == wordToGuess)
@@ -923,7 +923,7 @@ namespace WordGame
                             solved++;
                             return;
                         }
-                        else if(y== limited)
+                        else if (y == limited)
                         {
                             Console.WriteLine("Oh no! Better luck next time!");
                             Console.WriteLine("The wordle was:{0}", wordToGuess);
@@ -934,7 +934,7 @@ namespace WordGame
                     else
                     {
                         Console.WriteLine("Not in word list!");
-                        y--; 
+                        y--;
                     }
                 }
                 //stage 11: if the input word is longer or shorter than 5 characters
@@ -946,24 +946,24 @@ namespace WordGame
 
             }
         }
-        static string GetWordToGuess() //stage 13: function getWordToGuess
+        public string GetWordToGuess() //stage 13: function getWordToGuess
         {
             //stage 1: return random word
-            Random random = new Random();   
+            Random random = new Random();
             int wordNumber = random.Next(0, WORD_LIST.Count() - 1);
             string selectWord = WORD_LIST[wordNumber];
             return selectWord;
         }
-         public void DisplayDetails()//stage 13: function displayDetails
+        public void DisplayDetails()//stage 13: function displayDetails
         {
             Console.WriteLine("File : Author : Batman\nStud ID : 0123456X\nEmail ID : wayby001\nThis is my own work as defined by the\nUniversity's Academic Misconduct Policy.\n");
         }
-        static int CountofOccurrences(string letterA,string letterB)
+        public int CountofOccurrences(string letterA, string letterB)
         {
             int count = 0;
             for (int m = 0; m < letterB.Length; m++)
             {
-                if (letterA == letterB[m].ToString()) { count = count +1; }
+                if (letterA == letterB[m].ToString()) { count = count + 1; }
             }
             return count;
         }

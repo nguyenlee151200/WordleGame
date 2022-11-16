@@ -35,8 +35,8 @@ namespace WordGame
                             Console.WriteLine("My Wordle Summary");
                             Console.WriteLine("-----------------");
                             Console.WriteLine("You play {0} games:",totalPlay);
-                            Console.WriteLine("\t|--> Number of wordles solved : {0}", Game.Solved);
-                            Console.WriteLine("\t|--> Number of wordles unsolved : {0}",Game.Unsolved);
+                            Console.WriteLine("\t|--> Number of wordles solved : {0}", wordleGame.Solved);
+                            Console.WriteLine("\t|--> Number of wordles unsolved : {0}", wordleGame.Unsolved);
                             Console.WriteLine("Thank for playing !!!");
                             return;
                         }
@@ -58,5 +58,6 @@ namespace WordGame
             Console.WriteLine("--------------------------------");
         }
     }
+   
 
 }
